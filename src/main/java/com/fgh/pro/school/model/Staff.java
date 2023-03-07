@@ -43,11 +43,14 @@ public class Staff {
     @Column(name = "date_of_hiring")
     private Date dateOfHiring;
 
-    @Column(name = "formation")
-    private String formation;
+    @Column(name = "year_of_service")
+    private Date yearOfService;
+
+//    @Column(name = "formation")
+//    private String formation;
 
     @Column(name = "salary")
-    private double salary;
+    private double salaryFormation;
 
     @Column(name = "phone_number")
     private Long phoneNumber;
@@ -58,7 +61,8 @@ public class Staff {
     @Column(name = "father_contact")
     private String fatherContact;
 
-//    @ManyToOne
-//    @JoinColumn(name = "staff_type_id")
-//    private StaffType staffType;
+    @ManyToOne
+    @JoinColumn(name = "staff_type_id")
+    private StaffType staffType;
+
 }

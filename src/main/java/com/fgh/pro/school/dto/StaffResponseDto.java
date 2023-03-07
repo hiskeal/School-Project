@@ -26,11 +26,13 @@ public class StaffResponseDto {
 
     private int dob;
 
+    private Date yearOfService;
+
     private Date dateOfHiring;
 
-    private String formation;
+  //  private String formation;
 
-    private double salary;
+    private double salaryFormation;
 
     private Long phoneNumber;
 

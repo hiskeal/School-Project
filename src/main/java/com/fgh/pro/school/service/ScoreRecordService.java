@@ -26,7 +26,9 @@ public class ScoreRecordService {
     public ResponseDto saveScoreRecord(ScoreRecordRequestDto scoreRecordRequestDto) {
         try {
             ScoreRecord scoreRecord = new ScoreRecord();
+
             Subject subject = subjectRepo.findById(scoreRecordRequestDto.getSubjectId()).get();
+
             Student student = studentRepository.findById(scoreRecordRequestDto.getStudentId()).get();
 
             scoreRecord.setFirstSemester(scoreRecordRequestDto.getFirstSemester());

@@ -24,7 +24,5 @@ public class StaffType {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "staff_id")
-    private Staff staff;
+
 }
