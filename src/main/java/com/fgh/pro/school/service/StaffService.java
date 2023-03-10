@@ -7,6 +7,8 @@ import com.fgh.pro.school.repository.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Id;
+
 @Service
 public class StaffService {
 
@@ -24,8 +26,8 @@ public class StaffService {
         staff.setGender(staffRequestDto.getGender());
         staff.setDob(staffRequestDto.getDob());
         staff.setDateOfHiring(staffRequestDto.getDateOfHiring());
-        staff.setFormation(staffRequestDto.getFormation());
-        staff.setSalary(staffRequestDto.getSalary());
+        //staff.setFormation(staffRequestDto.getFormation());
+        //staff.setSalary(staffRequestDto.getSalary());
         staff.setMotherContact(staffRequestDto.getMotherContact());
         staff.setFatherContact(staffRequestDto.getFatherContact());
         staffRepository.save(staff);
@@ -33,6 +35,25 @@ public class StaffService {
 
         return new ResponseDto(true, "Create successfully");
     }
+public  ResponseDto updateStaff(StaffRequestDto staffRequestDto, Long id){
 
+    Staff staff = staffRepository.findById(id).get();
+    staff.setAddress(staffRequestDto.getAddress());
+    staff.setName(staffRequestDto.getName());
+    staff.setLastName(staffRequestDto.getLastName());
+    staff.setMotherLastName(staffRequestDto.getMotherLastName());
+    staff.setFatherLastName(staffRequestDto.getFatherLastName());
+    staff.setGender(staffRequestDto.getGender());
+    staff.setDob(staffRequestDto.getDob());
+    staff.setDateOfHiring(staffRequestDto.getDateOfHiring());
+    //staff.setFormation(staffRequestDto.getFormation());
+   // staff.setSalary(staffRequestDto.getSalary());
+    staff.setMotherContact(staffRequestDto.getMotherContact());
+    staff.setFatherContact(staffRequestDto.getFatherContact());
+    staffRepository.save(staff);
+
+    return new ResponseDto(true, "update successfully");
+
+}
 
 }
