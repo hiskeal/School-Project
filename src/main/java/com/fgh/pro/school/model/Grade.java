@@ -5,7 +5,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -27,6 +28,8 @@ public class Grade {
 
     @Column(name = "updated_on")
     private Date updatedOn;
+
+
 
 }
 
