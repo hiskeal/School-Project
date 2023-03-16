@@ -19,18 +19,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Controller
 @RequestMapping("/api")
-public class JwtController {
+public class JwtRequestController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+
+    private  UserDetailsService userDetailsService;
 
     @Autowired
     private JwtRequestService jwtRequestService;
 
-    @PostMapping("/save")
+    public JwtRequestController() {
+    }
+
+
+    @PostMapping("/saveJwtSecurity")
     public ResponseEntity saveJwtRequest(@RequestBody JwtRequestDto jwtRequestDto) throws Exception {
         try {
 
