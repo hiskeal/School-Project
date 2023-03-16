@@ -24,8 +24,8 @@ public class StaffService {
         staff.setGender(staffRequestDto.getGender());
         staff.setDob(staffRequestDto.getDob());
         staff.setDateOfHiring(staffRequestDto.getDateOfHiring());
-        staff.setFormation(staffRequestDto.getFormation());
-        staff.setSalary(staffRequestDto.getSalary());
+        //staff.setFormation(staffRequestDto.getFormation());
+        //staff.setSalary(staffRequestDto.getSalary());
         staff.setMotherContact(staffRequestDto.getMotherContact());
         staff.setFatherContact(staffRequestDto.getFatherContact());
         staffRepository.save(staff);
