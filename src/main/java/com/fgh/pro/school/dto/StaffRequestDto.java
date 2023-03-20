@@ -27,7 +27,7 @@ public class StaffRequestDto {
 
     private Date dateOfHiring;
 
-  //  private String formation;
+    private String formation;
 
     private Long staffTypeId;
 

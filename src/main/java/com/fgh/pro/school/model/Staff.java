@@ -46,8 +46,8 @@ public class Staff {
     @Column(name = "year_of_service")
     private Date yearOfService;
 
-//    @Column(name = "formation")
-//    private String formation;
+   @Column(name = "formation")
+   private String formation;
 
     @Column(name = "salary")
     private double salaryFormation;

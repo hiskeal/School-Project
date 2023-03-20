@@ -30,7 +30,7 @@ public class StaffResponseDto {
 
     private Date dateOfHiring;
 
-  //  private String formation;
+   private String formation;
 
     private double salaryFormation;
 
