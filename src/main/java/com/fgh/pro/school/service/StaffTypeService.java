@@ -42,4 +42,6 @@ public class StaffTypeService {
         return (List<StaffType>) ListAll();
 
     }
+    //todo list by staff type name
+
 }

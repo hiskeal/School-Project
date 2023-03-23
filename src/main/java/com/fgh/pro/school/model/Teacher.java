@@ -30,14 +30,14 @@ public class Teacher {
     @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "email",nullable = false)
     private String email;
 
     @Column(name = "password")
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "department_id",nullable = false)
     private Department department;
 
     @Column(name = "dob")
