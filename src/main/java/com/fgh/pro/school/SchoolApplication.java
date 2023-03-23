@@ -19,11 +19,11 @@ public class SchoolApplication extends WebSecurityConfigurerAdapter {
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-//	@Bean
-//	@Override
-//	public AuthenticationManager authenticationManager() {
-//		return super.authenticationManager();
-//	}
+	@Bean
+	@Override
+	public AuthenticationManager authenticationManager() throws Exception {
+		return super.authenticationManager();
+	}
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
