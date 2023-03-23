@@ -24,11 +24,7 @@ public class UserService {
         User user = userRepo.findByUserName(userRequestDto.getUserName());
         if (user == null) {
 
-
             String password = bCryptPasswordEncoder.encode(userRequestDto.getPassword());
-
-
-            //    usr.setPassword(userRequestDto.getPassword());
             usr.setPassword(password);
             usr.setUserName(userRequestDto.getUserName());
 
