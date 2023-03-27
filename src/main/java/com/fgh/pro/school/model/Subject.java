@@ -23,7 +23,7 @@ public class Subject {
 
     @Column(name = "subject_name")
     private String subjectName;
-    @Column(name = "sub_abbreviation")
+    @Column(name = "sub_abbreviation",nullable = false)
     private String subAbbreviation;
 
     @Column(name = "created_on")

@@ -30,6 +30,7 @@ public class TeacherController {
         return teacherService.updateTeacher(teacherRequestDto, id);
     }
 
+   //todo
     @GetMapping("/getById")
     public ResponseDto getTeacher(@PathVariable Long id) {
 
