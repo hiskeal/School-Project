@@ -62,6 +62,9 @@ public class Staff {
     @Column(name = "father_contact")
     private String fatherContact;
 
+    @Column(name = "staff_status")
+    private String staffStatus;
+
     @ManyToOne
     @JoinColumn(name = "staff_type_id")
     private StaffType staffType;

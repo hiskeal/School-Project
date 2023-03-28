@@ -13,7 +13,7 @@ import java.util.function.Function;
 
 @Service
 public class JwtRequestService {
-    
+
     private static final String secret = "secret" ;
 
     private static final long exepared_date = 60*60;
@@ -21,12 +21,12 @@ public class JwtRequestService {
     public String generateToken(UserDetails userDetails) {
 
 
-        
+
         Map<String, Object> objectMap = new HashMap<>();
 
         return doGenerateToken(objectMap, userDetails.getUsername());
 
-        
+
     }
 
     public String doGenerateToken(Map<String, Object> objectMap, String subject) {
@@ -56,7 +56,7 @@ public class JwtRequestService {
 
 
     public String usres(String token) {
-        return claims(token, Claims :: getSubject);
+        return claims(token, Claims:: getSubject);
     }
 
     public Date extract(String token) {
@@ -74,5 +74,5 @@ public class JwtRequestService {
                 .setSigningKey(secret)
                 .parseClaimsJws(token).getBody();
     }
-   
+
 }
