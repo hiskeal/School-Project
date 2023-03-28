@@ -20,17 +20,13 @@ public class StaffTypeController {
     StaffTypeService staffTypeService;
 
     @PostMapping("/createstafftype")
-    public ResponseDto CreateStaffType(@RequestBody StaffTypeRequestDto staffTypeRequestDto){
+    public ResponseDto CreateStaffType(@RequestBody StaffTypeRequestDto staffTypeRequestDto) {
         return staffTypeService.CreateStaffType(staffTypeRequestDto);
     }
 
     @PutMapping("/updatestafftype")
-    public ResponseDto UpdateStaffType(@RequestBody StaffTypeRequestDto staffTypeRequestDto, @PathVariable Long Id){
+    public ResponseDto UpdateStaffType(@RequestBody StaffTypeRequestDto staffTypeRequestDto, @PathVariable Long Id) {
         return staffTypeService.UpdateStaffType(staffTypeRequestDto, Id);
-    }
-    @GetMapping("/liststafftype")
-   public List<StaffType> ListAll(){
-      return staffTypeService.ListAll();
     }
 
 }

@@ -16,18 +16,19 @@ public class StaffTypeService {
     @Autowired
     StaffTypeRepo staffTypeRepo;
 
-    public ResponseDto CreateStaffType(StaffTypeRequestDto staffTypeRequestDto){
+
+    public ResponseDto CreateStaffType(StaffTypeRequestDto staffTypeRequestDto) {
         StaffType staffType = new StaffType();
 
         staffType.setName(staffTypeRequestDto.getName());
 
-      staffTypeRepo.save(staffType);
+        staffTypeRepo.save(staffType);
 
-        return new ResponseDto(true,"Create StaffType Successfully");
+        return new ResponseDto(true, "Create StaffType Successfully");
 
     }
 
-    public ResponseDto UpdateStaffType(StaffTypeRequestDto staffTypeRequestDto, Long Id){
+    public ResponseDto UpdateStaffType(StaffTypeRequestDto staffTypeRequestDto, Long Id) {
 
 
         StaffType staffType = staffTypeRepo.findById(Id).get();
@@ -35,13 +36,13 @@ public class StaffTypeService {
         staffType.setStaff(staffType.getStaff());
 
         staffTypeRepo.save(staffType);
-        return new ResponseDto(true,"Update StaffType Successfully");
+        return new ResponseDto(true, "Update StaffType Successfully");
     }
-    public List<StaffType> ListAll(){
+
+    public List<StaffType> ListAll() {
         List<ResponseDto> responseDtos = new ArrayList<>();
         return (List<StaffType>) ListAll();
 
     }
-    //todo list by staff type name
 
 }

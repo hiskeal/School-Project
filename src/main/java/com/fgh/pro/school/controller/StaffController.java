@@ -27,6 +27,10 @@ public class StaffController {
 
     }
 
+@DeleteMapping("/deleteStaff/{Id}")
 
+public ResponseDto deleteStaffById(@PathVariable Long Id) {
+   return  staffService.deleteStaffById(Id);
 
+}
 }
