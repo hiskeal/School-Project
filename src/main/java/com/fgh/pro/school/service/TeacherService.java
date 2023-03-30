@@ -4,6 +4,7 @@ import com.fgh.pro.school.dto.ResponseDto;
 import com.fgh.pro.school.dto.StudentRequestDto;
 import com.fgh.pro.school.dto.TeacherRequestDto;
 import com.fgh.pro.school.model.Department;
+import com.fgh.pro.school.model.StaffType;
 import com.fgh.pro.school.model.Student;
 import com.fgh.pro.school.model.Teacher;
 import com.fgh.pro.school.repository.DepartmentRepo;
@@ -27,10 +28,14 @@ public class TeacherService {
 
 
     public ResponseDto saveTeacher(TeacherRequestDto teacherRequestDto) {
+        Department department = departmentRepo.findById(teacherRequestDto.getDepartmentId()).get();
+        if (department == null) {
+            return new ResponseDto(false, "department Id does not found");
+        }
 
         Teacher teacher = new Teacher();
+        teacher.setTeacherStatus("active");
 
-        Department department = departmentRepo.findById(teacherRequestDto.getDepartmentId()).get();
 //     person.setAccountStatus("Active");
 
         teacher.setAge(teacherRequestDto.getAge());
@@ -49,12 +54,14 @@ public class TeacherService {
         teacherRepository.save(teacher);
 
         return new ResponseDto(true, "Registered Successfully");
-}
+    }
+
 
     public ResponseDto updateTeacher(TeacherRequestDto teacherRequestDto, Long id) {
 
         Teacher teacher = teacherRepository.findById(id).get();
-        Department department = departmentRepo.findById(teacherRequestDto.getDepartmentId()).get();
+
+
         // person.setAccountStatus("Active");
 
         teacher.setAge(teacherRequestDto.getAge());
@@ -68,7 +75,7 @@ public class TeacherService {
         teacher.setCreatedOn(new Date());
         teacher.setUpdatedOn(new Date());
 
-        teacher.setDepartment(department);
+        //teacher.setDepartment(department);
 
         teacherRepository.save(teacher);
         return new ResponseDto(true, "Updated Method");
@@ -81,10 +88,10 @@ public class TeacherService {
         return new ResponseDto(true, "deleted successfully");
     }
 
-    public ResponseDto getTeacherById(Long id) {
-         teacherRepository.findById(id).get();
+    public List<Teacher> getTeacherById(Long id) {
+        return (List<Teacher>) teacherRepository.findByid(id);
 
-           return new ResponseDto(true, "Get Each Result By Id");
+
 
     }
 
@@ -93,6 +100,29 @@ public class TeacherService {
         return (List<Teacher>) teacherRepository.findAll();
     }
 
+
+    public ResponseDto active(Long id) {
+        Teacher teacher = teacherRepository.findById(id).get();
+
+        if (teacher.getTeacherStatus().equals("active")) {
+            teacher.setTeacherStatus("Suspend");
+
+        } else if (teacher.getTeacherStatus().equals("Suspend")) {
+            teacher.setTeacherStatus("active");
+        }
+        teacherRepository.save(teacher);
+        return new ResponseDto(true, "active or deactivate");
+    }
+
+
+
+    public List<Teacher> listTeacherByFirstName(String name) {
+        return teacherRepository.findByfirstName(name);
+
+
+//                new ResponseDto(true, "Get Each Result By Name");
+
+    }
 
 
 }

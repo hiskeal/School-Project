@@ -3,6 +3,7 @@ package com.fgh.pro.school.controller;
 import com.fgh.pro.school.dto.ResponseDto;
 import com.fgh.pro.school.dto.TeacherRequestDto;
 import com.fgh.pro.school.model.Teacher;
+import com.fgh.pro.school.repository.DepartmentRepo;
 import com.fgh.pro.school.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +18,14 @@ public class TeacherController {
 
     @Autowired
     private TeacherService teacherService;
+    @Autowired
+    private DepartmentRepo departmentRepo;
+
 
     @PostMapping("/saveTeacher")
     public ResponseDto saveTeacher(@RequestBody TeacherRequestDto teacherRequestDto) {
 
-       return teacherService.saveTeacher(teacherRequestDto);
+        return teacherService.saveTeacher(teacherRequestDto);
     }
 
     @PutMapping("/saveTeacher/{id}")
@@ -30,9 +34,9 @@ public class TeacherController {
         return teacherService.updateTeacher(teacherRequestDto, id);
     }
 
-   //todo
-    @GetMapping("/getById")
-    public ResponseDto getTeacher(@PathVariable Long id) {
+    //todo
+    @GetMapping("/getById/{id}")
+    public List<Teacher> getTeacher(@PathVariable ("id")Long id) {
 
         return teacherService.getTeacherById(id);
     }
@@ -48,4 +52,22 @@ public class TeacherController {
 
         return teacherService.deleteTeacherById(id);
     }
+
+    @PostMapping("/active/{id}")
+    public ResponseDto active(@PathVariable Long id) {
+        return teacherService.active(id);
+
+
+
+    }
+    @GetMapping("/listTeacherByName")
+    public List<Teacher> listTeacherByName(@RequestParam ("Name") String Name) {
+
+        return teacherService.listTeacherByFirstName(Name);
+
+
+    }
+
+
+
 }

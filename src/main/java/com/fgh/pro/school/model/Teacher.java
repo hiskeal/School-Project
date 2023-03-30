@@ -30,7 +30,7 @@ public class Teacher {
     @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "email",nullable = false)
+    @Column(name = "email",nullable = true)
     private String email;
 
     @Column(name = "password")
@@ -52,8 +52,8 @@ public class Teacher {
     @Column(name = "registered_date")
     private String registeredDate;
 
-    @Column(name = "status")
-    private Boolean status;
+    @Column(name = "teacher_status")
+    private String teacherStatus;
 
     @Column(name = "updated_on")
     private Date updatedOn;
